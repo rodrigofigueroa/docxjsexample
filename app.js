@@ -24,10 +24,79 @@ const FakeDataJson = [
 const startPDf = () => {
     
 
-    for(let i = 0; i < FakeDataJson.length; i++){
+    for(let i = 0; i <  1; i++){
             (function(){
                     setTimeout(() => {
-                            let doc = new docx.Document();        
+                            let doc = new docx.Document();   
+                            const table = new docx.Table({
+                                rows: [
+                                    new docx.TableRow({
+                                        children: [
+                                            new docx.TableCell({
+                                                children: [],
+                                            }),
+                                            new docx.TableCell({
+                                                children: [],
+                                            }),
+                                            new docx.TableCell({
+                                                children: [],
+                                            }),
+                                            new docx.TableCell({
+                                                children: [],
+                                            }),
+                                        ],
+                                    }),
+                                    new docx.TableRow({
+                                        children: [
+                                            new docx.TableCell({
+                                                children: [],
+                                            }),
+                                            new docx.TableCell({
+                                                children: [new docx.Paragraph("Hello")]
+                                                
+                                            }),
+                                            new docx.TableCell({
+                                                children: [],
+                                            }),
+                                            new docx.TableCell({
+                                                children: [],
+                                            }),
+                                        ],
+                                    }),
+                                    new docx.TableRow({
+                                        children: [
+                                            new docx.TableCell({
+                                                children: [],
+                                            }),
+                                            new docx.TableCell({
+                                                children: [],
+                                            }),
+                                            new docx.TableCell({
+                                                children: [],
+                                            }),
+                                            new docx.TableCell({
+                                                children: [],
+                                            }),
+                                        ],
+                                    }),
+                                    new docx.TableRow({
+                                        children: [
+                                            new docx.TableCell({
+                                                children: [],
+                                            }),
+                                            new docx.TableCell({
+                                                children: [],
+                                            }),
+                                            new docx.TableCell({
+                                                children: [],
+                                            }),
+                                            new docx.TableCell({
+                                                children: [],
+                                            }),
+                                        ],
+                                    }),
+                                ],
+                            });     
                             doc.addSection({
                                 children: [
                                     new docx.Paragraph({
@@ -60,6 +129,7 @@ const startPDf = () => {
                                     })
                                 ]
                             })                        
+                            doc.addSection({ children: [table] });
                             createDocument(doc, docx, `${FakeDataJson[i].id}-${FakeDataJson[i].name}`);
                     }, i * 2000)
             }())
